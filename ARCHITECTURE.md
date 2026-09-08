@@ -245,6 +245,19 @@ important half of the fix was that the renderer now states which rules were
 relaxed and why, because a rule dropped quietly is worse than the bug it works
 around — it turns a visible constraint into an invisible one.
 
+**The same mistake, in a different medium.** The transfer-to-human tool on a voice
+agent originally required the caller to know the founder's first name, as a spam
+filter. That is sound reasoning about cold callers and useless as a gate, because
+almost nobody phoning a business for the first time knows the founder's first
+name — including the people you most want to reach you. The rule did not separate
+real callers from noise. It separated people who had already met me from everyone
+else, and everyone else is the reason the number exists. Removed.
+
+The diagnostic in both cases is the same question: not what is this rule intended
+to exclude, but what does it actually exclude.
+
+→ `case-studies/voice-and-chat-agent.md`
+
 ---
 
 ## The layer underneath eleven rules
