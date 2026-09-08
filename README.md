@@ -15,9 +15,9 @@ worth reading.
 
 **Four prospect research pipelines.** One finds wholesale distributors across the
 United States for a Long Island oyster farm with no sales force. Another maps the
-drone-services market across eight countries in North and South America,
-Argentina, Brazil, Canada, Chile, Colombia, Mexico, Peru and the United States,
-for a start-up opening those markets. Both ingest public government registries
+drone-services market for a start-up opening eight countries in North and South
+America: Argentina, Brazil, Canada, Chile, Colombia, Mexico, Peru and the United
+States. Both ingest public government registries
 and the open web, qualify against a deterministic gate, and hand a human a ranked
 call list with the evidence behind every judgment attached to it.
 
