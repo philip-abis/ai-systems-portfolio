@@ -48,11 +48,17 @@ other place free to reproduce it.
 
 ---
 
-## 3. Define scope once. Audit it. Require the leak count to be zero.
+## 3. Decide once who is in the running, then check that nobody fell out.
 
 A company is in scope if the qualification gate passed and nothing evidenced
-rules it out. Not whether anyone has researched it, and not how confident anyone
-is - those describe our knowledge, not the company.
+rules it out. Not whether anyone has researched it yet, and not how confident
+anyone is about it. Those describe what we know, not what the company is, and
+filtering on them silently removes companies that qualify.
+
+Every qualifying company must land in exactly one bucket: rated, awaiting a human
+read, not yet researched, ruled out with a written reason, or a grower. The number
+that fits none of them must be zero, and a script checks it rather than leaving it
+to whoever happens to look.
 
 **What it cost:** the same bug, filtering on a bookkeeping field instead of on a
 judgment, appeared in four different files. It cut three companies the client had
@@ -67,10 +73,11 @@ required to be zero.
 
 ---
 
-## 4. State the invariant as an executable assertion.
+## 4. Write down what you are relying on, then make something check it.
 
-Dedupe is only correct if each cluster of duplicates leaves exactly one row
-standing. Nothing was checking that.
+When the same company turns up twice, one copy gets marked as the duplicate and
+every later step ignores it. That is only correct if exactly one copy survives.
+Nothing was checking that it did.
 
 **What it cost:** eleven of 73 clusters were mutually flagged, so both rows were
 excluded and seven of the highest-rated companies in the dataset vanished from
@@ -148,7 +155,7 @@ honest empty one.
 
 The same skill runs where a script can open a socket and where it cannot but the
 agent's own tool calls can. "Which environment am I in" is a label. "Can this
-process reach the API" is the thing that decides and the thing that breaks.
+process reach the API" is what decides, and what breaks.
 
 The probe runs once, before any URL is fetched, and the chosen path is announced
 in one sentence including what it costs and what it cannot do. Never a per-URL
@@ -191,7 +198,7 @@ more expensive option ranked first. And every coefficient lives in a config file
 where it can be seen and argued with rather than buried in the ranking code.
 
 A score fails when its unit is arbitrary, its inputs are hidden, and the only
-adjustable thing is the threshold. It works when the adjustment is denominated in
+adjustable value is the threshold. It works when the adjustment is denominated in
 something real and shown alongside what it adjusted.
 
 → `exhibits/config_as_contract.py`

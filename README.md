@@ -21,12 +21,16 @@ for a start-up opening those markets. Both ingest public government registries
 and the open web, qualify against a deterministic gate, and hand a human a ranked
 call list with the evidence behind every judgment attached to it.
 
-At that scope the numbers mean something: working ledgers of 4,702 and 2,341
-companies, of which 1,960 have been individually rated. The registries feeding
-them are larger again, one national register alone returns 6,912 companies for a
-sector where 55 are material. The filter that discards the other 6,857 runs at
-fetch time rather than downstream, because passing all of them along would look
-like thoroughness while moving the judgment somewhere nobody can inspect it.
+At that scope the numbers mean something. The two working ledgers hold 4,702 and
+2,341 companies, of which 1,960 have been individually rated, and 384 survive
+qualification to reach the call list someone actually works: 99 rated Strong, 285
+Promising, every one of them a distributor rather than a restaurant or a retailer.
+
+Most of the funnel is discarding, and that is the design rather than a shortfall.
+One national register alone returns 6,912 companies for a sector where 55 are
+material. The filter that drops the other 6,857 runs at fetch time rather than
+downstream, because passing them along would look like thoroughness while moving
+the judgment somewhere nobody can inspect it.
 
 **A vision-based grading tool** that reads photographed workbook pages, grades
 them against an answer key, tracks per-concept accuracy across a chapter and

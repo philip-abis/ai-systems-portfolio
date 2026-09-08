@@ -10,7 +10,10 @@ States, for a start-up entering them, where the question is not only which
 companies to call but which national markets are worth entering at all.
 
 Between them the working ledgers hold 4,702 and 2,341 companies, of which 1,960
-have been individually rated. The same
+have been individually rated. From the oyster ledger, 384 reach the call list a
+human actually works: 99 rated Strong, 285 Promising, all of them distributors.
+The rest are qualified out, and the ratio is the point rather than an
+embarrassment. A shortlist that keeps everything is a list nobody trusts. The same
 shape was then applied to a drone-services start-up, to a country-level market
 sizing exercise, and to a contact-research skill shared across all of them.
 
@@ -18,7 +21,7 @@ sizing exercise, and to a contact-research skill shared across all of them.
 
 A prospect list is easy to generate and almost impossible to trust. Anyone can
 produce 500 companies. The questions that decide whether it is worth anything
-are: does this company buy the thing, who says so, and what happens when
+are: does this company buy the product, who says so, and what happens when
 two sources disagree.
 
 So the design puts a hard, legally grounded gate at the front and confines the
