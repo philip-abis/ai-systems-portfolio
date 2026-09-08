@@ -103,8 +103,3 @@ consistent is manual work nobody is doing. Unifying them behind one knowledge
 source is the obvious next move and has not been done.
 
 The chat side's knowledge base is out of date. I know, and it is on the list.
-
-The asymmetry is also unresolved: the phone version can complete a booking and
-transfer to a human, and the chat version cannot. That is defensible — the
-channels have different expectations — but it was not a decision so much as
-where the work stopped.
