@@ -198,7 +198,7 @@ something real and shown alongside what it adjusted.
 
 ---
 
-## 9. Separate the thing that builds from the thing that sends.
+## 9. Separate what prepares an update from what sends it.
 
 Building an export payload and pushing it to a live system are separate scripts.
 There is no `--push` flag on the export command, so there is no flag that can be
