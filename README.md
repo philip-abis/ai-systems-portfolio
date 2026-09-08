@@ -13,13 +13,20 @@ worth reading.
 
 ## The short version
 
-**Four prospect research pipelines.** Their working ledgers hold 4,702 and 2,341
-companies; 1,960 have been individually rated. The registries feeding them are
-larger still — one national register alone returns 6,912 companies, of which 55
-are material, and the filter that discards the rest is part of the design rather
-than an afterthought. They qualify against a deterministic gate and hand a human
-a ranked call list with the evidence attached. Built for a Long Island oyster
-farm and for a drone-services start-up.
+**Four prospect research pipelines.** One finds wholesale distributors across the
+United States for a Long Island oyster farm with no sales force. Another maps the
+drone-services market across eight countries in North and South America —
+Argentina, Brazil, Canada, Chile, Colombia, Mexico, Peru and the United States —
+for a start-up opening those markets. Both ingest public government registries
+and the open web, qualify against a deterministic gate, and hand a human a ranked
+call list with the evidence behind every judgment attached to it.
+
+At that scope the numbers mean something: working ledgers of 4,702 and 2,341
+companies, of which 1,960 have been individually rated. The registries feeding
+them are larger again — one national register alone returns 6,912 companies for a
+sector where 55 are material. The filter that discards the other 6,857 runs at
+fetch time rather than downstream, because passing all of them along would look
+like thoroughness while moving the judgment somewhere nobody can inspect it.
 
 **A vision-based grading tool** that reads photographed workbook pages, grades
 them against an answer key, tracks per-concept accuracy across a chapter and

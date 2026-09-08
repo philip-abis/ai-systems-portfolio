@@ -1,9 +1,16 @@
 # Prospect research at scale
 
-Four pipelines, one architecture. The two largest ledgers hold 4,702 and 2,341
-companies, of which 1,960 have been individually rated, built for a Long Island
-oyster farm looking for wholesale buyers outside its home market and for a
-drone-services start-up opening Latin American markets. The same
+Four pipelines, one architecture, two very different markets.
+
+The first finds wholesale distributors across the United States for a Long Island
+oyster farm that has no sales force and needs buyers outside its home market. The
+second maps the drone-services market across eight countries in North and South
+America — Argentina, Brazil, Canada, Chile, Colombia, Mexico, Peru and the United
+States — for a start-up entering them, where the question is not only which
+companies to call but which national markets are worth entering at all.
+
+Between them the working ledgers hold 4,702 and 2,341 companies, of which 1,960
+have been individually rated. The same
 shape was then applied to a drone-services start-up, to a country-level market
 sizing exercise, and to a contact-research skill shared across all of them.
 
