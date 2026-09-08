@@ -22,9 +22,10 @@ her own voice. Proactive pop-ups are switched off deliberately; a bubble that
 interrupts a reader after ten seconds is a tactic that annoys more people than it
 converts.
 
-The two are the same idea reached through different channels. The phone version
-does more, because a caller who wants to book expects to finish the booking on the
-call, whereas a website visitor can be handed a link.
+Both channels book, and both can reach a person. What differs is the shape of the
+conversation rather than the capability: a caller expects to finish in one turn-
+taking exchange, where a visitor can be given options to click and can leave the
+window open.
 
 ## The build
 
