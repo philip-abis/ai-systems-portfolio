@@ -237,15 +237,17 @@ is the freshest record that exists.
 
 ## 11. A rule correct in one context can empty the result set in another
 
-Arrival caps written for short domestic routes cost nothing there, because a
-same-day arrival is always available. Applied to intercontinental routes the same
-caps are catastrophic: every carrier's eastbound leg lands the next morning, so
-the rules do not tighten the search, they eliminate every itinerary that could
-exist.
+A travel-search skill ranks flight itineraries against a set of household rules,
+one of which caps how late a flight may land. That cap was written for short
+domestic routes, where it costs nothing because a same-day arrival before midnight
+is always on offer. Applied to intercontinental routes the same cap is
+catastrophic: every carrier's eastbound leg lands the next morning, so the rule
+does not tighten the search, it eliminates every itinerary that could exist.
 
 **What it cost:** a long run ruled out every transatlantic option and would have
 finished with "nothing cleared the rules" whatever it found, after spending the
-entire budget finding it.
+entire search budget finding it. The same skill supplies the config-as-contract
+exhibit and the legitimate-score distinction in rule 8.
 
 The fix was scoping those rules to the context they were written for. The
 important half of the fix was that the renderer now states which rules were
