@@ -6,8 +6,8 @@ data, and each is stated here with that failure attached, because a rule without
 its incident is just an opinion.
 
 The systems they come from are prospect research pipelines, a vision-based
-grading tool, a field sales app, and the reliability layer that keeps all of them
-honest. Different domains, same decisions.
+grading tool, a field sales app, and the layer of checks that keeps all of them
+running correctly over time. Different domains, same decisions.
 
 ---
 
