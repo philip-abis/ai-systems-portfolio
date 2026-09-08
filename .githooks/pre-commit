@@ -45,5 +45,17 @@ if [ -f "$list" ]; then
   done < "$list"
 fi
 
+# 4. Voice. This repo is public, and 49 em-dashes reached it once, found only
+#    because Philip asked. Added lines only: blocking on the backlog would get
+#    the hook switched off, and what matters is that nothing NEW crosses.
+voice="$HOME/.claude/scripts/check_voice.py"
+if [ ! -f "$voice" ]; then
+  # Loud rather than silent. A guard that vanishes without saying so is
+  # indistinguishable from a guard that passed.
+  echo "note: $voice not found, voice check skipped."
+else
+  python3 "$voice" --staged --quiet || fail=1
+fi
+
 [ "$fail" -eq 1 ] && { echo; echo "Commit refused. Fix the above, or use --no-verify only if you are certain."; exit 1; }
 exit 0
