@@ -85,8 +85,7 @@ with a public URL and open registration is an app anyone can join.
 
 ## Honest status
 
-Built and deployed with real data behind it. The push back to the system of
-record is not written yet, so calls captured in the app do not yet appear on the
-main board automatically. That is the next piece, and its two rules are already
+The push back to the system of record is not written yet, so calls captured in
+the app do not yet appear on the main board automatically. That is the next piece, and its two rules are already
 written down: per-field, and only for companies that have a capture, so
 it can never write an empty value over something a human typed.
