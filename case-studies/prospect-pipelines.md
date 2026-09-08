@@ -10,8 +10,8 @@ States, for a start-up entering them, where the question is not only which
 companies to call but which national markets are worth entering at all.
 
 Between them the working ledgers hold 4,702 and 2,341 companies, of which 1,960
-have been individually rated. From the oyster ledger, 384 reach the call list a
-human actually works: 99 rated Strong, 285 Promising, all of them distributors.
+have been individually rated. From the oyster ledger, 384 reach the call list
+itself: 99 rated Strong, 285 Promising, all of them distributors.
 The rest are qualified out, and the ratio is the point rather than an
 embarrassment. A shortlist that keeps everything is a list nobody trusts. The same
 shape was then applied to a drone-services start-up, to a country-level market

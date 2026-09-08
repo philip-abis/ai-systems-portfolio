@@ -23,7 +23,7 @@ call list with the evidence behind every judgment attached to it.
 
 At that scope the numbers mean something. The two working ledgers hold 4,702 and
 2,341 companies, of which 1,960 have been individually rated, and 384 survive
-qualification to reach the call list someone actually works: 99 rated Strong, 285
+qualification to reach the call list itself: 99 rated Strong, 285
 Promising, every one of them a distributor rather than a restaurant or a retailer.
 
 Most of the funnel is discarding, and that is the design rather than a shortfall.
