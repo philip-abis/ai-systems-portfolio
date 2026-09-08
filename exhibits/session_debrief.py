@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Post-landing debrief — what must not be left behind when a session closes.
+"""Post-landing debrief, what must not be left behind when a session closes.
 
 Every check here exists because the thing it looks for has gone wrong.
 None of them are hypothetical:
@@ -120,7 +120,7 @@ def inspect(start):
         touched_code = any("/scripts/" in p for p in paths)
         touched_doc = any(p.endswith("SKILL.md") for p in paths)
         if touched_code and not touched_doc:
-            drift.append(f"{root} — scripts changed, SKILL.md did not")
+            drift.append(f"{root}, scripts changed, SKILL.md did not")
     if drift:
         findings.append(("SKILL.md DRIFT",
                          "A skill whose docs lag its code reintroduces fixed bugs.",
@@ -133,7 +133,7 @@ def inspect(start):
     if assets:
         findings.append(("ASSETS TRACKED IN GIT",
                          "Source material and deliverables do not belong in the repo. "
-                         "Untracking needs `git rm --cached` — .gitignore alone will not do it.",
+                         "Untracking needs `git rm --cached`.gitignore alone will not do it.",
                          assets[:15] + ([f"...and {len(assets)-15} more"] if len(assets) > 15 else [])))
 
     # --- 5. skill zips older than their SKILL.md
@@ -145,7 +145,7 @@ def inspect(start):
             z = os.path.join(archives, f"{name}.zip")
             if os.path.exists(z):
                 if os.path.getmtime(os.path.join(dirpath, "SKILL.md")) > os.path.getmtime(z):
-                    stale.append(f"{name}.zip is older than its SKILL.md — repackage")
+                    stale.append(f"{name}.zip is older than its SKILL.md, repackage")
         dirnames[:] = [d for d in dirnames if d not in (".git", "node_modules", "__pycache__")]
     if stale:
         findings.append(("SKILL PACKAGE STALE",
@@ -161,11 +161,11 @@ def report(label, result):
     print(f"   branch {result['branch']}" +
           (f" -> {result['upstream']}" if result["upstream"] else " (no upstream)"))
     if result["other"]:
-        print(f"   {len(result['other'])} non-machinery file(s) uncommitted — "
+        print(f"   {len(result['other'])} non-machinery file(s) uncommitted, "
               f"deliverables/material, left alone by design")
     print()
     if not result["findings"]:
-        print("   clean — machinery committed and pushed, docs in step, no assets tracked.")
+        print("   clean, machinery committed and pushed, docs in step, no assets tracked.")
         print()
         return True
     for title, why, items in result["findings"]:
@@ -194,7 +194,7 @@ def main():
         glob = None
 
     if work is None and (args.no_global or glob is None):
-        print("post-landing: not a git repository — nothing to check.")
+        print("post-landing: not a git repository, nothing to check.")
         return 0
 
     print("Post-landing debrief")
@@ -202,14 +202,14 @@ def main():
 
     clean = True
     if work is None:
-        print("── WORKING REPO: not a git repository — nothing to check there.")
+        print("── WORKING REPO: not a git repository, nothing to check there.")
         print()
     else:
         clean &= report(work_label, work)
 
     if not args.no_global and not same:
         if glob is None:
-            print("── GLOBAL CONFIG: ~/.claude is not a git repository — global skills, "
+            print("── GLOBAL CONFIG: ~/.claude is not a git repository, global skills, "
                   "hooks and settings.json are backed up nowhere.")
             print()
             clean = False
@@ -217,9 +217,9 @@ def main():
             clean &= report("GLOBAL CONFIG", glob)
 
     if clean:
-        print("  ALL CLEAR — both repos clean. Safe to close.")
+        print("  ALL CLEAR, both repos clean. Safe to close.")
         return 0
-    print("  Commit in the repo the finding is listed under — the two have "
+    print("  Commit in the repo the finding is listed under, the two have "
           "separate remotes and a commit in one does not carry the other.")
     return 1
 

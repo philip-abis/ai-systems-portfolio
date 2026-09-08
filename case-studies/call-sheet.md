@@ -22,7 +22,7 @@ here is the number, four questions, next.
 Opens on the first company with no capture against it, so the queue resumes
 rather than restarting. Rank and fit badges, company, location, business type.
 Call, Email and Website as thumb-sized targets. Who to ask for and their title.
-The opening angle — the specific reason to phone this company rather than any
+The opening angle, the specific reason to phone this company rather than any
 other. Longer research folded away until wanted.
 
 Then four fields: stage as chips rather than a dropdown, next step, notes, and an
@@ -69,8 +69,8 @@ through a server-side API. Nothing deployed can write to it directly.
 Rather than route around that, the write path is inverted. The app becomes the
 only writer for the five caller-owned fields and the system of record becomes a
 one-way downstream display, updated by a session that reads the app's database
-and pushes through the tools it does have. The alternative — two writable copies
-of the same field with no reconciliation — produces loops, duplicates and silent
+and pushes through the tools it does have. The alternative, two writable copies
+of the same field with no reconciliation, produces loops, duplicates and silent
 divergence as the normal case rather than the edge case.
 
 The mirror carries a `last_synced` stamp, and a screen showing unsynced captures

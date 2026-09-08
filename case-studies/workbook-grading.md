@@ -17,8 +17,8 @@ identified by threshold, and the result is written to a database and handed to
 the next skill, which produces the review brief, the quiz PDF and prompts for
 further study.
 
-Judgment lives in the skill definition. All bookkeeping — hashing, dedupe,
-merging, statistics, image preprocessing — lives in scripts that take arguments,
+Judgment lives in the skill definition. All bookkeeping, hashing, dedupe,
+merging, statistics, image preprocessing, lives in scripts that take arguments,
 print JSON to stdout, and never call a model or an API. Human-readable progress
 goes to stderr so stdout always parses as a single JSON document.
 
@@ -54,9 +54,9 @@ misread as an illegible teacher mark at page scale.
 Resolving all six moved chapter accuracy from 79.4% to **75.0%** and changed the
 diagnosis of one weak concept from a method gap to a single denominator slip.
 
-The number got worse. That is the correct outcome — the earlier figure was
+The number got worse. That is the correct outcome, the earlier figure was
 higher because four wrong answers were sitting in a bucket that did not count
-against it — and it is recorded in the skill's improvements log with the date. A
+against it, and it is recorded in the skill's improvements log with the date. A
 system that only reports numbers when they improve is not measuring anything.
 
 The lasting change was procedural: crop and magnify is now a required step before
@@ -77,7 +77,7 @@ handoff is now automatic and announced rather than confirmed, because closing th
 chapter is already the decision.
 
 An API required a date to be set through an expanded key rather than a plain
-value — the kind of detail that costs an hour and is worth a line in a log so it
+value, the kind of detail that costs an hour and is worth a line in a log so it
 costs nobody an hour again.
 
 ## Evaluation

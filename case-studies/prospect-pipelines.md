@@ -5,8 +5,8 @@ Four pipelines, one architecture, two very different markets.
 The first finds wholesale distributors across the United States for a Long Island
 oyster farm that has no sales force and needs buyers outside its home market. The
 second maps the drone-services market across eight countries in North and South
-America — Argentina, Brazil, Canada, Chile, Colombia, Mexico, Peru and the United
-States — for a start-up entering them, where the question is not only which
+America, Argentina, Brazil, Canada, Chile, Colombia, Mexico, Peru and the United
+States, for a start-up entering them, where the question is not only which
 companies to call but which national markets are worth entering at all.
 
 Between them the working ledgers hold 4,702 and 2,341 companies, of which 1,960
@@ -64,7 +64,7 @@ A roster flag was treated as fatal, deleting a company the client was actively
 selling to plus 141 other qualified dealers. Absence from a federal list was
 treated as disqualifying, which would have erased every buyer in seven states
 that run no such certification. Absence from one roster snapshot was read as "not
-certified", marking 160 live businesses uncertified — all 160 clustered on nine
+certified", marking 160 live businesses uncertified, all 160 clustered on nine
 state renewal dates, which is renewal lag, not closure. A directory's "Market"
 category was read as retail-only, downgrading a wholesaler supplying 200-plus
 restaurants. And twice, a decision function ignored a credential that had already
@@ -103,7 +103,7 @@ ledger is what someone decided should be there.
 None of that proves the list is good. So I asked the client to name the companies
 he was already selling to, and went looking for them in my own output.
 
-Four of the six were in the data and had been thrown out. Not ranked low —
+Four of the six were in the data and had been thrown out. Not ranked low,
 discarded, for the crime of not having been researched yet. The list was not
 merely padded. It was missing the answer.
 
@@ -127,7 +127,7 @@ dataset and a name join breaks silently.
 Claude, mostly Opus, orchestrated in Claude Code with the same skills packaged to
 run in Claude Cowork so a non-technical operator can use them without a terminal.
 Firecrawl for fetching. Notion over MCP as CRM and system of record. Python
-standard library, no framework — nothing an orchestration framework would have
+standard library, no framework, nothing an orchestration framework would have
 done here was not done more legibly by a JSON file and a schema.
 
 ## Honest assessment

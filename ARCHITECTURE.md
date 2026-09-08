@@ -106,7 +106,7 @@ did not load is obvious in raw text and invisible in a well-formed object.
 ## 6. Author in one place, deploy to another, and make the difference converge.
 
 Everything here is built with Claude Code, mostly in VS Code and sometimes
-straight from the terminal — a real editor, version control, a diff for every
+straight from the terminal, a real editor, version control, a diff for every
 change. Almost none of it is *operated* there. The people who use these
 systems work in a chat surface, so a skill is written as project files and
 deployed to that surface, and the two have to behave identically.
@@ -118,7 +118,7 @@ scripts compute.
 
 The design that survives that is narrow on purpose.
 
-**One skill, not two.** The alternative — a local version and a hosted version —
+**One skill, not two.** The alternative, a local version and a hosted version,
 means two codebases that drift, and the drift is invisible until they disagree
 about the same company.
 
@@ -184,7 +184,7 @@ deliberately separate and reported side by side for exactly this reason.
 **When a score IS legitimate.** A travel-ranking skill in this same collection
 scores openly, and the difference is worth stating rather than glossing. Three
 conditions make it honest. The unit is real money per person, not an invented
-weight — a connection is worth taking if it saves more than the connection costs
+weight, a connection is worth taking if it saves more than the connection costs
 you, and that scales correctly with party size without a special case. The raw
 cash figure is reported next to the adjusted score, so it is always visible why a
 more expensive option ranked first. And every coefficient lives in a config file
@@ -243,13 +243,13 @@ entire budget finding it.
 The fix was scoping those rules to the context they were written for. The
 important half of the fix was that the renderer now states which rules were
 relaxed and why, because a rule dropped quietly is worse than the bug it works
-around — it turns a visible constraint into an invisible one.
+around, it turns a visible constraint into an invisible one.
 
 **The same mistake, in a different medium.** The transfer-to-human tool on a voice
 agent originally required the caller to know the founder's first name, as a spam
 filter. That is sound reasoning about cold callers and useless as a gate, because
 almost nobody phoning a business for the first time knows the founder's first
-name — including the people you most want to reach you. The rule did not separate
+name, including the people you most want to reach you. The rule did not separate
 real callers from noise. It separated people who had already met me from everyone
 else, and everyone else is the reason the number exists. Removed.
 

@@ -17,7 +17,7 @@ it. Transfers to a human on request, in any phrasing. Logs the interaction.
 **On the website.** A persistent widget, described in its own configuration as
 available around the clock to answer questions, schedule consultations, and help a
 visitor work out whether AI is worth doing in their business. Styled to the site
-rather than left on defaults — brand colour, custom avatar, a composer prompt in
+rather than left on defaults, brand colour, custom avatar, a composer prompt in
 her own voice. Proactive pop-ups are switched off deliberately; a bubble that
 interrupts a reader after ten seconds is a tactic that annoys more people than it
 converts.
@@ -39,7 +39,7 @@ window open.
 
 Four tools are attached to the voice assistant: check availability, create a
 booking, transfer to a human, append a log row. Availability and booking are
-separate on purpose — the model checks what exists before it offers anything,
+separate on purpose, the model checks what exists before it offers anything,
 rather than proposing a time and discovering it is taken.
 
 Voice created 7 March, chat 11 March, both last modified 12 March. Unchanged
@@ -57,8 +57,8 @@ chokepoint, arrived at independently in a third modality. An agent that produces
 plausible answer to something it did not hear is worse than one that asks again,
 because the caller cannot see that it misheard.
 
-**Acknowledge before transferring.** The prompt requires a specific spoken line —
-"just a minute, I'll connect you now" — *before* the transfer tool fires. Without
+**Acknowledge before transferring.** The prompt requires a specific spoken line,
+"just a minute, I'll connect you now", *before* the transfer tool fires. Without
 it there is a silent gap while the tool runs, and on a phone call silence is
 indistinguishable from a dropped call. The caller hangs up. This costs one
 sentence and prevents the most likely abandonment in the whole flow.
@@ -77,7 +77,7 @@ deterministically.
 ## The control I built and then removed
 
 Originally the transfer-to-human tool had a gate: the caller had to know my first
-name. The reasoning was ordinary spam filtering — someone who knows the founder by
+name. The reasoning was ordinary spam filtering, someone who knows the founder by
 name is a real contact, and someone cold-calling the company number is not.
 
 It was the wrong control, and the reason is worth stating precisely. The gate
@@ -88,7 +88,7 @@ me from everyone else, and everyone else is the entire point of having a phone
 number.
 
 I removed it. The assistant now transfers whenever a human is asked for, in any
-phrasing — person, agent, representative, owner, someone else.
+phrasing, person, agent, representative, owner, someone else.
 
 This is the same failure as the arrival caps elsewhere in this portfolio, which
 were correct for short domestic routes and eliminated every intercontinental

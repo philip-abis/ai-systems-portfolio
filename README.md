@@ -15,15 +15,15 @@ worth reading.
 
 **Four prospect research pipelines.** One finds wholesale distributors across the
 United States for a Long Island oyster farm with no sales force. Another maps the
-drone-services market across eight countries in North and South America —
-Argentina, Brazil, Canada, Chile, Colombia, Mexico, Peru and the United States —
+drone-services market across eight countries in North and South America,
+Argentina, Brazil, Canada, Chile, Colombia, Mexico, Peru and the United States,
 for a start-up opening those markets. Both ingest public government registries
 and the open web, qualify against a deterministic gate, and hand a human a ranked
 call list with the evidence behind every judgment attached to it.
 
 At that scope the numbers mean something: working ledgers of 4,702 and 2,341
 companies, of which 1,960 have been individually rated. The registries feeding
-them are larger again — one national register alone returns 6,912 companies for a
+them are larger again, one national register alone returns 6,912 companies for a
 sector where 55 are material. The filter that discards the other 6,857 runs at
 fetch time rather than downstream, because passing all of them along would look
 like thoroughness while moving the judgment somewhere nobody can inspect it.
@@ -59,8 +59,8 @@ out was a `.docx`.
 
 Roughly 24,000 lines of working machinery across eleven skills, connected to
 Notion, Gmail, Google Workspace, Slack and two web-data providers over MCP. All
-of it built with Claude Code — mostly in VS Code, sometimes straight from the
-terminal — and deployed to a chat surface a non-technical operator uses. That
+of it built with Claude Code, mostly in VS Code, sometimes straight from the
+terminal, and deployed to a chat surface a non-technical operator uses. That
 split between where it is written and where it is run shows up in nearly every
 design decision here.
 
@@ -74,16 +74,15 @@ that produced it. About ten minutes.
 
 Then whichever case study fits what you care about:
 
-- **[Prospect research at scale](case-studies/prospect-pipelines.md)** — the
+- **[Prospect research at scale](case-studies/prospect-pipelines.md)**: the
   largest system, the government registries underneath it, and the day six
   separate code paths each silently overrode a human judgment.
-- **[Grading, with ground truth](case-studies/workbook-grading.md)** — the only
+- **[Grading, with ground truth](case-studies/workbook-grading.md)**: the only
   system here that can be scored, including the pass where fixing the ambiguous
   items made the accuracy number go *down* and it was reported anyway.
-- **[A tool someone else uses](case-studies/call-sheet.md)** — the app, the
+- **[A tool someone else uses](case-studies/call-sheet.md)**: the app, the
   security model, and why the data is not in the page.
-- **[An assistant that answers the phone and the website](case-studies/voice-and-chat-agent.md)** —
-  the voice agent, the decisions that only matter on a call, and the access control
+- **[An assistant that answers the phone and the website](case-studies/voice-and-chat-agent.md)**: the voice agent, the decisions that only matter on a call, and the access control
   I built and then removed once I worked out what it was actually filtering.
 
 The `exhibits/` directory holds seven files chosen because each one demonstrates a
@@ -107,7 +106,7 @@ never stating a target again.
 
 **Trusting the pipeline instead of testing it.** I asked the client to name the
 companies he was already selling to, then went looking for them in my own output.
-Four of the six were in the data and had been thrown out — not ranked low,
+Four of the six were in the data and had been thrown out, not ranked low,
 discarded, for the crime of not having been researched yet. Those six are now a
 permanent regression test that runs at the start of every working session.
 
