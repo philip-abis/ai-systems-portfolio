@@ -43,12 +43,14 @@ in a model's judgment, so the same inputs always produce the same answer. It is
 the one place here where a numeric score is legitimate, and the architecture
 document explains why that is not a contradiction.
 
-**A voice and chat assistant** on my consulting practice's website. She answers the
-company phone on `gpt-4.1` with Deepgram transcription, books a fifteen-minute call
-against a live calendar through custom tools, and transfers to a human on request.
-Most of the design is about failure modes that only exist on a phone: never guess
-at a bad transcription, acknowledge out loud before a silent tool call, and never
-say the weekday.
+**An assistant reachable two ways.** Abby answers my consulting practice's phone
+and its website chat. On the phone she runs on `gpt-4.1` with Deepgram
+transcription, books a fifteen-minute call against a live calendar through custom
+tools, and transfers to a human on request; on the site she is a widget that
+answers questions and routes people to the same booking. Two builds on two
+platforms, one persona, live since March. Most of the interesting design is about
+failure modes that only exist on a call: never guess at a bad transcription,
+acknowledge out loud before a silent tool call, and never say the weekday.
 
 **A reliability layer** underneath all of it: session-start data checks, an
 end-of-session audit that blocks a close on drifted documentation or leaked
@@ -80,7 +82,7 @@ Then whichever case study fits what you care about:
   items made the accuracy number go *down* and it was reported anyway.
 - **[A tool someone else uses](case-studies/call-sheet.md)** — the app, the
   security model, and why the data is not in the page.
-- **[An assistant that answers the phone](case-studies/voice-and-chat-agent.md)** —
+- **[An assistant that answers the phone and the website](case-studies/voice-and-chat-agent.md)** —
   the voice agent, the decisions that only matter on a call, and the access control
   I built and then removed once I worked out what it was actually filtering.
 
