@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+# Refuse a commit carrying a credential, an asset, or a name from the redaction
+# list. Present from this repo's first commit rather than added after an
+# incident, because the incident this guards against has already happened once
+# in another repository and the recovery took a full working session.
+#
+# Install:  git config core.hooksPath .githooks
+set -uo pipefail
+
+staged=$(git diff --cached --name-only --diff-filter=ACM)
+[ -z "$staged" ] && exit 0
+fail=0
+
+# 1. Assets must never be tracked. .gitignore does nothing for a forced add.
+while IFS= read -r f; do
+  case "${f,,}" in
+    *.pdf|*.xlsx|*.xls|*.docx|*.doc|*.pptx|*.ppt|*.jpg|*.jpeg|*.png|*.heic|*.zip|*.csv|*.mp4|*.mov)
+      echo "BLOCKED: $f is source material or a deliverable, not machinery."; fail=1 ;;
+    .env|*/.env|*.pem|*id_rsa*)
+      echo "BLOCKED: $f looks like a credential."; fail=1 ;;
+  esac
+done <<< "$staged"
+
+# 2. Credential-shaped strings in content.
+if git diff --cached -U0 | grep -nE '^\+.*(fc-[0-9a-f]{24,}|sk-[A-Za-z0-9_-]{20,}|ntn_[A-Za-z0-9]{20,}|pplx-[A-Za-z0-9]{20,}|AIza[0-9A-Za-z_-]{30,}|ghp_[A-Za-z0-9]{30,})'; then
+  echo "BLOCKED: an API-key-shaped string is being committed."; fail=1
+fi
+
+# 3. Redaction list. Names of people and businesses that must not appear.
+#    Kept in a file that is itself ignored, so the list is not published.
+list=".redactions.local.txt"
+if [ -f "$list" ]; then
+  while IFS= read -r name; do
+    [ -z "$name" ] && continue
+    case "$name" in \#*) continue ;; esac
+    if git diff --cached -U0 | grep -qiE "^\+.*\b${name}\b"; then
+      echo "BLOCKED: a redacted name appears in the staged diff."; fail=1
+    fi
+  done < "$list"
+fi
+
+[ "$fail" -eq 1 ] && { echo; echo "Commit refused. Fix the above, or use --no-verify only if you are certain."; exit 1; }
+exit 0

@@ -1,0 +1,17 @@
+Copyright 2026 Philip Garrison. All rights reserved.
+
+This repository is published for evaluation. The contents are not licensed for
+reuse, redistribution, or derivative work.
+
+No open-source licence is granted, deliberately. Two reasons:
+
+1. The systems described here encode a commercial method, and an open licence
+   would invite its reuse.
+2. Not every idea in the working originals is mine to relicense. The originals
+   sit alongside third-party skill catalogues under their own terms; none of
+   that material appears here, and no licence I granted should imply otherwise.
+
+Everything in this repository was written by Philip Garrison, with Claude as the
+implementation tool. Code exhibits are excerpted from working systems; where a
+docstring has been rewritten to remove a client identity, the file says so at the
+top. Program logic is unmodified.

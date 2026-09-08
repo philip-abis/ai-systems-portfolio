@@ -1,0 +1,38 @@
+# Global extension blocklist. Machinery only lives here; source material and
+# deliverables never do. Matched by extension everywhere rather than folder by
+# folder, because a folder-scoped rule is what failed last time.
+*.pdf
+*.xlsx
+*.xls
+*.docx
+*.doc
+*.pptx
+*.ppt
+*.numbers
+*.pages
+*.key
+*.jpg
+*.jpeg
+*.png
+*.heic
+*.gif
+*.tiff
+*.mp4
+*.mov
+*.m4a
+*.mp3
+*.wav
+*.zip
+*.csv
+
+# Secrets
+.env
+.env.*
+*.pem
+id_rsa*
+
+# Noise
+__pycache__/
+*.pyc
+.DS_Store
+.redactions.local.txt

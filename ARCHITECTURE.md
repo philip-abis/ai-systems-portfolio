@@ -1,0 +1,184 @@
+# Nine rules, and what each one cost to learn
+
+These are the decisions that recur across every system in this repository. They
+were not designed up front. Each one is the residue of a specific failure on real
+data, and each is stated here with that failure attached, because a rule without
+its incident is just an opinion.
+
+The systems they come from are prospect research pipelines, a vision-based
+grading tool, a field sales app, and the reliability layer that keeps all of them
+honest. Different domains, same nine decisions.
+
+---
+
+## 1. Scripts own facts. The model owns judgment. A schema sits between them.
+
+Anything a script can settle deterministically is settled by a script and never
+re-litigated by a model: registry fetches, merges, dedupe, qualification gates,
+scope definitions, statistics. What is left is genuinely a judgment call, and in
+the largest of these pipelines it is exactly two questions.
+
+The boundary is stated in the docstring of every module that sits on it, because
+the boundary erodes silently. A model asked to "just also check" a mechanical
+fact will answer, plausibly, and now the fact has two sources.
+
+**The failure it prevents:** a fluent, confident answer where a lookup was
+available.
+
+---
+
+## 2. One writer per field, and every writer declares its authority.
+
+A fit rating can only be written through a single function. Each caller names who
+is speaking. A lower authority may raise a rating but may never push it below a
+floor a higher authority established, and refusals are recorded on the record
+rather than swallowed.
+
+**What it cost:** in one working day, six separate code paths each silently
+overrode a judgment that had already been made. Each was individually sensible.
+One deleted a company the client was actively selling to, along with 141 other
+qualified dealers. Comments did not stop it - two of the six were written
+directly beneath the comment describing the first.
+
+**The general shape:** when a defect recurs in different files with different
+authors, it is not a bug, it is a shape. Fixing it where you find it leaves every
+other place free to reproduce it.
+
+→ `exhibits/single_writer_rating.py`
+
+---
+
+## 3. Define scope once. Audit it. Require the leak count to be zero.
+
+A company is in scope if the qualification gate passed and nothing evidenced
+rules it out. Not whether anyone has researched it, and not how confident anyone
+is - those describe our knowledge, not the company.
+
+**What it cost:** the same bug, filtering on a bookkeeping field instead of on a
+judgment, appeared in four different files. It cut three companies the client had
+already sold to, hid 291 qualifying records, left 175 rated companies invisible
+to export, and pushed 528 below the line on a base-rate guess written into a
+field that ranking read as evidence.
+
+The audit does not produce a category to investigate later. It produces a number
+required to be zero.
+
+→ `exhibits/scope_audit.py`
+
+---
+
+## 4. State the invariant as an executable assertion.
+
+Dedupe is only correct if each cluster of duplicates leaves exactly one row
+standing. Nothing was checking that.
+
+**What it cost:** eleven of 73 clusters were mutually flagged, so both rows were
+excluded and seven of the highest-rated companies in the dataset vanished from
+the top band. It survived a full 1,221-company run because every individual step
+was correct. The failure lived in the gap between them, and produced no error, no
+exception and no log line.
+
+The check now runs at session start, so a broken graph is reported before any
+work is done rather than discovered afterwards by someone asking where a company
+went.
+
+→ `exhibits/dedupe_integrity.py`
+
+---
+
+## 5. Prove the page loaded before believing anything extracted from it.
+
+Every extraction schema carries a field asserting the page actually returned. The
+HTTP status is checked separately. Either one failing invalidates the whole
+extraction, not just the fields that look wrong.
+
+**What it cost:** an extractor was handed the text of a "page not found" and
+returned three confidently wrong figures and a complete, fluent policy summary.
+Nothing errored, because from the extractor's side nothing failed - it was given
+text and produced the requested shape.
+
+**The consequence:** a load-bearing number never rests on a model-parsed
+extraction alone. It needs a raw-text cross-check or a second source. Raw markdown
+is preferred over parsed JSON wherever completeness matters, because a page that
+did not load is obvious in raw text and invisible in a well-formed object.
+
+---
+
+## 6. Branch on a measured capability, never on an assumed environment.
+
+The same skill runs where a script can open a socket and where it cannot but the
+agent's own tool calls can. "Which environment am I in" is a label. "Can this
+process reach the API" is the thing that decides and the thing that breaks.
+
+The probe runs once, before any URL is fetched, and the chosen path is announced
+in one sentence including what it costs and what it cannot do. Never a per-URL
+fallback: a run that fetched half one way and half the other cannot be read
+afterwards, because nothing in the output says which half is which.
+
+→ `exhibits/capability_preflight.py`
+
+---
+
+## 7. Bands with stated criteria, never a blended score.
+
+Ratings are named bands whose criteria are written down. There is no combined
+number anywhere, and there must never be one.
+
+**What it cost:** an early shortlist came out at 85 companies, and it was 85
+because several signals had been blended into one score, the score had a
+threshold, and the threshold had been moved until the list was the size that was
+hoped for. That is not a shortlist. It is a wish with arithmetic attached.
+
+The moment two signals collapse into a number, the number gets a threshold, and
+the threshold gets tuned. In a later pipeline two dimensions are kept
+deliberately separate and reported side by side for exactly this reason.
+
+---
+
+## 8. Separate the thing that builds from the thing that sends.
+
+Building an export payload and pushing it to a live system are separate scripts.
+There is no `--push` flag on the export command, so there is no flag that can be
+passed by accident.
+
+The same principle governs writes generally: no delete policy on the call
+records table, because a wrong value is fixable in seconds and a vanished record
+is not. Where two systems hold the same field, one owns it and the other is a
+one-way mirror carrying a `last_synced` stamp, so a stale copy reports itself as
+stale rather than as agreement.
+
+---
+
+## 9. Design for the environment the software is used in, not developed in.
+
+The call sheet is worked from a dock and a truck. So a capture is written to the
+phone before the network is touched, and the network write is allowed to fail.
+Unsent work is retried on the next save, on sign-in, and when the browser reports
+it is back online. The header names where the data is rather than reassuring
+anyone that it is safe, and signing out with unsent records asks first.
+
+On load, the newer of the local and server record wins on timestamp. Server-wins
+is the obvious rule and it is wrong: a capture from a phone that has been offline
+is the freshest record that exists.
+
+→ `exhibits/offline_first_capture.js`
+
+---
+
+## The layer underneath all nine
+
+None of the above survives contact with time unless something checks it. A
+session-start preflight runs three deterministic checks against the live data and
+stays silent when they pass. A post-landing debrief refuses to let a session end
+with uncommitted machinery, documentation that has drifted from its code, or
+source material that has crept into version control - and it checks both the
+project repository and the global configuration repository separately, because
+they have different remotes and a commit in one does not carry the other. A
+pre-commit hook blocks credentials and private names. A claims guard reads Word
+documents as well as markdown, because the file that once got out was a `.docx`
+and a markdown-only scan would not have seen it.
+
+That layer is not the interesting part of the work. It is the part that decides
+whether the interesting part is still true in six months.
+
+→ `exhibits/session_debrief.py`
