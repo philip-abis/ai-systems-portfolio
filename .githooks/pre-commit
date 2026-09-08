@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Portable to bash 3.2 (macOS default). Do not use bash-4 expansions here.
 # Refuse a commit carrying a credential, an asset, or a name from the redaction
 # list. Present from this repo's first commit rather than added after an
 # incident, because the incident this guards against has already happened once
@@ -13,7 +14,12 @@ fail=0
 
 # 1. Assets must never be tracked. .gitignore does nothing for a forced add.
 while IFS= read -r f; do
-  case "${f,,}" in
+  # tr rather than ${f,,} - macOS ships bash 3.2, where that expansion is a
+  # syntax error. It failed silently on the first commit to this repo: the hook
+  # ran, the case statement never matched, and nothing was checked. A guard that
+  # errors without failing the commit is worse than no guard.
+  lower=$(printf '%s' "$f" | tr '[:upper:]' '[:lower:]')
+  case "$lower" in
     *.pdf|*.xlsx|*.xls|*.docx|*.doc|*.pptx|*.ppt|*.jpg|*.jpeg|*.png|*.heic|*.zip|*.csv|*.mp4|*.mov)
       echo "BLOCKED: $f is source material or a deliverable, not machinery."; fail=1 ;;
     .env|*/.env|*.pem|*id_rsa*)
