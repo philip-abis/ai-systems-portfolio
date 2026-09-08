@@ -81,26 +81,29 @@ unmodified, and where a docstring was rewritten the file says so at the top.
 
 ---
 
-## What I would want asked about
+## Three mistakes that changed the design
 
-The failures, because they are the only part that cannot be faked.
+Each cost something real, and each produced a structural change rather than a
+resolution to be more careful.
 
-Specifying the size of the answer instead of the criteria for it. I once told the
-system roughly how many prospects the shortlist should hold, which sounds like
-direction and is really an inversion — a count is an output of qualification, so
-supplying it as an input just means the gates get tuned until they produce it.
-What fixed it was not a better score. It was removing the ability to have one, and
+**Specifying the size of the answer instead of the criteria for it.** I told the
+system roughly how many prospects the shortlist should hold. That sounds like
+direction and is really an inversion: a count is an output of qualification, so
+supplying it as an input means the gates get tuned until they produce it. What
+fixed it was not a better score. It was removing the ability to have one, and
 never stating a target again.
 
-The day I stopped trusting the pipeline and asked the client to name the
-companies he was already selling to. Four of the six were in my data and had been
-thrown out — not ranked low, discarded, for the crime of not having been
-researched yet. Those six are now a permanent regression test that runs at the
-start of every working session.
+**Trusting the pipeline instead of testing it.** I asked the client to name the
+companies he was already selling to, then went looking for them in my own output.
+Four of the six were in the data and had been thrown out — not ranked low,
+discarded, for the crime of not having been researched yet. Those six are now a
+permanent regression test that runs at the start of every working session.
 
-The extraction that returned three confident figures and a complete policy
-summary read off a page that did not exist. Nothing errored. That is why every
-schema here carries a field asserting the page actually loaded.
+**Believing an extraction without checking the page loaded.** It returned three
+confident figures and a complete policy summary, read off a page that did not
+exist. Nothing errored, because from the extractor's side nothing failed: it was
+handed text and produced the requested shape. Every schema here now carries a
+field asserting the page actually came back.
 
 ---
 
