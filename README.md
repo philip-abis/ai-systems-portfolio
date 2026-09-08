@@ -43,8 +43,10 @@ out was a `.docx`.
 
 Roughly 24,000 lines of working machinery across eleven skills, connected to
 Notion, Gmail, Google Workspace, Slack and two web-data providers over MCP. All
-of it authored in code and deployed to a chat surface a non-technical operator
-uses, which is a constraint that shows up in nearly every design decision here.
+of it built with Claude Code — mostly in VS Code, sometimes straight from the
+terminal — and deployed to a chat surface a non-technical operator uses. That
+split between where it is written and where it is run shows up in nearly every
+design decision here.
 
 ---
 

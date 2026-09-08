@@ -105,8 +105,9 @@ did not load is obvious in raw text and invisible in a well-formed object.
 
 ## 6. Author in one place, deploy to another, and make the difference converge.
 
-Everything here is authored in code — a real editor, version control, a diff for
-every change. Almost none of it is *operated* there. The people who use these
+Everything here is built with Claude Code, mostly in VS Code and sometimes
+straight from the terminal — a real editor, version control, a diff for every
+change. Almost none of it is *operated* there. The people who use these
 systems work in a chat surface, so a skill is written as project files and
 deployed to that surface, and the two have to behave identically.
 
