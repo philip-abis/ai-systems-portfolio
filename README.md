@@ -13,10 +13,13 @@ worth reading.
 
 ## The short version
 
-**Four prospect research pipelines**, the largest of which read 1,221 companies.
-They ingest public government registries and the open web, qualify against a
-deterministic gate, and hand a human a ranked call list with the evidence
-attached. Built for a Long Island oyster farm and for a drone-services start-up.
+**Four prospect research pipelines.** Their working ledgers hold 4,702 and 2,341
+companies; 1,960 have been individually rated. The registries feeding them are
+larger still — one national register alone returns 6,912 companies, of which 55
+are material, and the filter that discards the rest is part of the design rather
+than an afterthought. They qualify against a deterministic gate and hand a human
+a ranked call list with the evidence attached. Built for a Long Island oyster
+farm and for a drone-services start-up.
 
 **A vision-based grading tool** that reads photographed workbook pages, grades
 them against an answer key, tracks per-concept accuracy across a chapter and
@@ -39,15 +42,17 @@ material, and a guard that reads Word documents because the file that once got
 out was a `.docx`.
 
 Roughly 24,000 lines of working machinery across eleven skills, connected to
-Notion, Gmail, Google Workspace, Slack and two web-data providers over MCP.
+Notion, Gmail, Google Workspace, Slack and two web-data providers over MCP. All
+of it authored in code and deployed to a chat surface a non-technical operator
+uses, which is a constraint that shows up in nearly every design decision here.
 
 ---
 
 ## Start here
 
-**[ARCHITECTURE.md](ARCHITECTURE.md)** is the document I would want read. Ten
+**[ARCHITECTURE.md](ARCHITECTURE.md)** is the document I would want read. Eleven
 decisions that recur across every system, each stated with the specific failure
-that produced it. Ten rules and ten incidents, about ten minutes.
+that produced it. About ten minutes.
 
 Then whichever case study fits what you care about:
 
@@ -71,10 +76,12 @@ unmodified, and where a docstring was rewritten the file says so at the top.
 
 The failures, because they are the only part that cannot be faked.
 
-The shortlist that came out at 85 companies because I had blended signals into a
-score, put a threshold on it, and moved the threshold until the list was the size
-I hoped for. What fixed it was not a better score. It was removing the ability to
-have one.
+Specifying the size of the answer instead of the criteria for it. I once told the
+system roughly how many prospects the shortlist should hold, which sounds like
+direction and is really an inversion — a count is an output of qualification, so
+supplying it as an input just means the gates get tuned until they produce it.
+What fixed it was not a better score. It was removing the ability to have one, and
+never stating a target again.
 
 The day I stopped trusting the pipeline and asked the client to name the
 companies he was already selling to. Four of the six were in my data and had been

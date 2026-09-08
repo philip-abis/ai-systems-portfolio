@@ -1,4 +1,4 @@
-# Ten rules, and what each one cost to learn
+# Eleven rules, and what each one cost to learn
 
 These are the decisions that recur across the systems in this repository. They
 were not designed up front. Each one is the residue of a specific failure on real
@@ -74,8 +74,7 @@ standing. Nothing was checking that.
 
 **What it cost:** eleven of 73 clusters were mutually flagged, so both rows were
 excluded and seven of the highest-rated companies in the dataset vanished from
-the top band. It survived a full 1,221-company run because every individual step
-was correct. The failure lived in the gap between them, and produced no error, no
+the top band. It survived a full run because every individual step was correct. The failure lived in the gap between them, and produced no error, no
 exception and no log line.
 
 The check now runs at session start, so a broken graph is reported before any
@@ -104,7 +103,47 @@ did not load is obvious in raw text and invisible in a well-formed object.
 
 ---
 
-## 6. Branch on a measured capability, never on an assumed environment.
+## 6. Author in one place, deploy to another, and make the difference converge.
+
+Everything here is authored in code — a real editor, version control, a diff for
+every change. Almost none of it is *operated* there. The people who use these
+systems work in a chat surface, so a skill is written as project files and
+deployed to that surface, and the two have to behave identically.
+
+They cannot behave identically for free, because they differ in one specific way:
+a script running in the hosted sandbox has no outbound network, while that same
+environment's own tool calls run server-side and reach the web fine. Tools fetch,
+scripts compute.
+
+The design that survives that is narrow on purpose.
+
+**One skill, not two.** The alternative — a local version and a hosted version —
+means two codebases that drift, and the drift is invisible until they disagree
+about the same company.
+
+**The branch is confined to fetching, and nothing else.** Both paths hand the
+same page text to the same extraction code. Two paths that extracted differently
+would produce different judgments about identical input, which is the single way
+this design goes wrong.
+
+**Then they converge.** After the fetch, there is one path again: the same
+schema, the same validator, the same ledger. The environment shows up once, at
+the top, and never again.
+
+**And the choice is announced.** One sentence before anything is fetched, naming
+the path, what it costs per item, and what it cannot do at all. The hosted path
+is usually slower and dearer, because the local one fetches in parallel inside a
+single process while the hosted one spends a model turn per call. That is a real
+difference at scale and invisible in the output, so the operator is told rather
+than left to infer it from a thin result.
+
+**What it prevents:** a run that fetched half one way and half the other and
+cannot be read afterwards, and worse, a quietly thinner result that looks like an
+honest empty one.
+
+---
+
+## 7. Branch on a measured capability, never on an assumed environment.
 
 The same skill runs where a script can open a socket and where it cannot but the
 agent's own tool calls can. "Which environment am I in" is a label. "Can this
@@ -119,15 +158,23 @@ afterwards, because nothing in the output says which half is which.
 
 ---
 
-## 7. Bands with stated criteria, never a blended score.
+## 8. Bands with stated criteria, never a blended score.
 
 Ratings are named bands whose criteria are written down. There is no combined
 number anywhere, and there must never be one.
 
-**What it cost:** an early shortlist came out at 85 companies, and it was 85
-because several signals had been blended into one score, the score had a
-threshold, and the threshold had been moved until the list was the size that was
-hoped for. That is not a shortlist. It is a wish with arithmetic attached.
+**What it cost:** I specified the size of the answer instead of the criteria for
+it. Early on I gave the system a rough target for how many prospects the
+shortlist should contain, which sounds like useful direction and is actually an
+inversion: a count is an OUTPUT of a qualification process, and supplying it as
+an input means the gates get adjusted until they produce the number requested.
+Several signals had been blended into one score, the score had a threshold, and
+the threshold moved until the list was the requested size. What comes out of that
+is not a shortlist. It is the number you asked for, wearing evidence.
+
+The correct instruction is about the gate, never about the count: state what
+qualifies a company and let the total be whatever the data yields, including
+uncomfortably small.
 
 The moment two signals collapse into a number, the number gets a threshold, and
 the threshold gets tuned. In a later pipeline two dimensions are kept
@@ -150,7 +197,7 @@ something real and shown alongside what it adjusted.
 
 ---
 
-## 8. Separate the thing that builds from the thing that sends.
+## 9. Separate the thing that builds from the thing that sends.
 
 Building an export payload and pushing it to a live system are separate scripts.
 There is no `--push` flag on the export command, so there is no flag that can be
@@ -164,7 +211,7 @@ stale rather than as agreement.
 
 ---
 
-## 9. Design for the environment the software is used in, not developed in.
+## 10. Design for the environment the software is used in, not developed in.
 
 The call sheet is worked from a dock and a truck. So a capture is written to the
 phone before the network is touched, and the network write is allowed to fail.
@@ -180,7 +227,7 @@ is the freshest record that exists.
 
 ---
 
-## 10. A rule correct in one context can empty the result set in another
+## 11. A rule correct in one context can empty the result set in another
 
 Arrival caps written for short domestic routes cost nothing there, because a
 same-day arrival is always available. Applied to intercontinental routes the same
@@ -199,7 +246,7 @@ around — it turns a visible constraint into an invisible one.
 
 ---
 
-## The layer underneath ten rules
+## The layer underneath eleven rules
 
 None of the above survives contact with time unless something checks it. A
 session-start preflight runs three deterministic checks against the live data and

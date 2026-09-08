@@ -1,7 +1,9 @@
 # Prospect research at scale
 
-Four pipelines, one architecture. The largest read 1,221 companies for a Long
-Island oyster farm looking for wholesale buyers outside its home market. The same
+Four pipelines, one architecture. The two largest ledgers hold 4,702 and 2,341
+companies, of which 1,960 have been individually rated, built for a Long Island
+oyster farm looking for wholesale buyers outside its home market and for a
+drone-services start-up opening Latin American markets. The same
 shape was then applied to a drone-services start-up, to a country-level market
 sizing exercise, and to a contact-research skill shared across all of them.
 
@@ -81,6 +83,13 @@ Scope moved into a single definition with an audit that requires the count of
 unaccounted companies to be zero. A separate check asserts that every duplicate
 cluster leaves exactly one row standing, after a mutual-flagging bug hid seven of
 the highest-rated companies for an entire run without raising an error anywhere.
+
+**Discarding is part of the design.** One national register returns 6,912
+companies for a sector where 55 are material. Shipping all 6,912 downstream and
+letting a later stage sort it out would have looked like thoroughness and been
+the opposite: it moves the judgment to where nobody can see it. The materiality
+filter runs at fetch time and the raw set is never emitted, so what reaches the
+ledger is what someone decided should be there.
 
 ## The falsification test
 
