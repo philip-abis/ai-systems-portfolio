@@ -127,7 +127,7 @@ dataset and a name join breaks silently.
 
 ## Tooling
 
-Claude, mostly Opus, orchestrated in Claude Code with the same skills packaged to
+Claude, mostly Opus, built in Claude Code inside VS Code, with the same skills packaged to
 run in Claude Cowork so a non-technical operator can use them without a terminal.
 Firecrawl for fetching. Notion over MCP as CRM and system of record. Python
 standard library, no framework, nothing an orchestration framework would have

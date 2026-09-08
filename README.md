@@ -53,18 +53,24 @@ transcription, books a fifteen-minute call against a live calendar through custo
 tools, and transfers to a human on request; on the site she is a widget that
 answers questions and routes people to the same booking. Two builds on two
 platforms, one persona, live since March. Most of the interesting design is about
-failure modes that only exist on a call: never guess at a bad transcription,
-acknowledge out loud before a silent tool call, and never say the weekday.
+failure modes that only exist on a call: never guess at a bad transcription, and
+acknowledge out loud before a silent tool call, because silence during one reads
+as a dropped line and the caller hangs up.
 
-**A reliability layer** underneath all of it: session-start data checks, an
-end-of-session audit that blocks a close on drifted documentation or leaked
-material, and a guard that reads Word documents because the file that once got
-out was a `.docx`.
+**A reliability layer** underneath all of it, which is the part I would defend
+before the rest. Three deterministic checks run against the live data before a
+session starts and stay silent when they pass. A second pass at the end refuses to
+let a session close with machinery uncommitted, documentation that has drifted
+from its code, or source material that has crept into version control. Neither
+depends on anyone remembering to run it, which is the only reason either still
+works months later.
 
 Roughly 24,000 lines of working machinery across eleven skills, connected to
-Notion, Gmail, Google Workspace, Slack and two web-data providers over MCP. All
-of it built with Claude Code, mostly in VS Code, sometimes straight from the
-terminal, and deployed to a chat surface a non-technical operator uses. That
+Notion, Gmail, Google Workspace, Slack and two web-data providers over MCP, with
+Supabase for Postgres and auth and Netlify for hosting where something has to be
+a real web app. All of it built with Claude Code, mostly in VS Code, sometimes
+straight from the terminal, and deployed to a chat surface a non-technical
+operator uses. That
 split between where it is written and where it is run shows up in nearly every
 design decision here.
 

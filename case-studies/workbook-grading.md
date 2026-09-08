@@ -4,8 +4,12 @@ Three chained skills that take photographs of completed workbook pages and
 produce a graded chapter, a per-concept accuracy breakdown, a review brief, a
 printable quiz and a database rollup.
 
-It is the only system in this repository whose output can be scored. Every other
-system produces judgments nobody can check. A graded page has a right answer.
+It is the only system here whose output can be scored immediately and mechanically.
+The others are checkable too, and the prospect pipelines were checked, by asking
+the client to name companies he was already selling to and looking for them in the
+output. But that verification is slow and expensive: it costs a phone call, a
+human, and often weeks before anyone knows whether a rating was right. A graded
+page has a right answer now, for nothing.
 
 ## What it does
 

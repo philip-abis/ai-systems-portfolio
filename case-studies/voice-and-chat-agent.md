@@ -63,12 +63,18 @@ it there is a silent gap while the tool runs, and on a phone call silence is
 indistinguishable from a dropped call. The caller hangs up. This costs one
 sentence and prevents the most likely abandonment in the whole flow.
 
-**Say the timezone once, and never say the weekday.** All offered times are
-announced as Eastern, once, at the top. Options are given as month and day only.
-Saying "Tuesday the 12th" on a call invites the caller to check whether the 12th
-really is a Tuesday, and now you are arguing about a calendar instead of booking
-a meeting. Removing the weekday removes an entire class of conversational
-derailment.
+**Say the timezone once. Do not say the weekday.** All offered times are announced
+as Eastern, once, at the top, because a call gives you no place to put a timezone
+label. Options are given as month and day only.
+
+The second half of that is a mitigation and I would rather name it than dress it
+up. The honest reason the weekday is omitted is that I did not want to depend on
+the model getting it right, and the real fix is an assistant that knows the 12th
+is a Tuesday, which I have not built. There is a genuine argument underneath it,
+which is that "Tuesday the 12th" asserts two facts where the booking needs one,
+and the spare fact is something a caller can stop and check. That holds even for a
+model that computes dates perfectly. But it is the argument I found afterwards,
+not the reason I made the choice.
 
 **One question per turn.** Obvious in text, essential in voice, where a caller
 answering two questions at once produces a transcript nobody can parse
