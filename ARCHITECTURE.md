@@ -1,13 +1,13 @@
-# Nine rules, and what each one cost to learn
+# Ten rules, and what each one cost to learn
 
-These are the decisions that recur across every system in this repository. They
+These are the decisions that recur across the systems in this repository. They
 were not designed up front. Each one is the residue of a specific failure on real
 data, and each is stated here with that failure attached, because a rule without
 its incident is just an opinion.
 
 The systems they come from are prospect research pipelines, a vision-based
 grading tool, a field sales app, and the reliability layer that keeps all of them
-honest. Different domains, same nine decisions.
+honest. Different domains, same decisions.
 
 ---
 
@@ -133,6 +133,21 @@ The moment two signals collapse into a number, the number gets a threshold, and
 the threshold gets tuned. In a later pipeline two dimensions are kept
 deliberately separate and reported side by side for exactly this reason.
 
+**When a score IS legitimate.** A travel-ranking skill in this same collection
+scores openly, and the difference is worth stating rather than glossing. Three
+conditions make it honest. The unit is real money per person, not an invented
+weight — a connection is worth taking if it saves more than the connection costs
+you, and that scales correctly with party size without a special case. The raw
+cash figure is reported next to the adjusted score, so it is always visible why a
+more expensive option ranked first. And every coefficient lives in a config file
+where it can be seen and argued with rather than buried in the ranking code.
+
+A score fails when its unit is arbitrary, its inputs are hidden, and the only
+adjustable thing is the threshold. It works when the adjustment is denominated in
+something real and shown alongside what it adjusted.
+
+→ `exhibits/config_as_contract.py`
+
 ---
 
 ## 8. Separate the thing that builds from the thing that sends.
@@ -165,7 +180,26 @@ is the freshest record that exists.
 
 ---
 
-## The layer underneath all nine
+## 10. A rule correct in one context can empty the result set in another
+
+Arrival caps written for short domestic routes cost nothing there, because a
+same-day arrival is always available. Applied to intercontinental routes the same
+caps are catastrophic: every carrier's eastbound leg lands the next morning, so
+the rules do not tighten the search, they eliminate every itinerary that could
+exist.
+
+**What it cost:** a long run ruled out every transatlantic option and would have
+finished with "nothing cleared the rules" whatever it found, after spending the
+entire budget finding it.
+
+The fix was scoping those rules to the context they were written for. The
+important half of the fix was that the renderer now states which rules were
+relaxed and why, because a rule dropped quietly is worse than the bug it works
+around — it turns a visible constraint into an invisible one.
+
+---
+
+## The layer underneath ten rules
 
 None of the above survives contact with time unless something checks it. A
 session-start preflight runs three deterministic checks against the live data and

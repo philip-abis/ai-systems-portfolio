@@ -28,6 +28,11 @@ phone: one company at a time, tap to dial, four fields after the call. Static
 page, Postgres behind it, row-level security, offline-first so a dead signal on a
 dock loses nothing.
 
+**A travel-search skill** whose entire ranking lives in a config file rather than
+in a model's judgment, so the same inputs always produce the same answer. It is
+the one place here where a numeric score is legitimate, and the architecture
+document explains why that is not a contradiction.
+
 **A reliability layer** underneath all of it: session-start data checks, an
 end-of-session audit that blocks a close on drifted documentation or leaked
 material, and a guard that reads Word documents because the file that once got
@@ -40,10 +45,9 @@ Notion, Gmail, Google Workspace, Slack and two web-data providers over MCP.
 
 ## Start here
 
-**[ARCHITECTURE.md](ARCHITECTURE.md)** is the document I would want read. Nine
+**[ARCHITECTURE.md](ARCHITECTURE.md)** is the document I would want read. Ten
 decisions that recur across every system, each stated with the specific failure
-that produced it. It is nine rules and nine incidents, and it is about ten
-minutes.
+that produced it. Ten rules and ten incidents, about ten minutes.
 
 Then whichever case study fits what you care about:
 
@@ -56,7 +60,7 @@ Then whichever case study fits what you care about:
 - **[A tool someone else uses](case-studies/call-sheet.md)** — the app, the
   security model, and why the data is not in the page.
 
-The `exhibits/` directory holds six files chosen because each one demonstrates a
+The `exhibits/` directory holds seven files chosen because each one demonstrates a
 rule, not because it is large. Every one is excerpted from a system in production
 use. Client identities have been removed from the commentary; the logic is
 unmodified, and where a docstring was rewritten the file says so at the top.
