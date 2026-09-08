@@ -18,7 +18,7 @@ sizing exercise, and to a contact-research skill shared across all of them.
 
 A prospect list is easy to generate and almost impossible to trust. Anyone can
 produce 500 companies. The questions that decide whether it is worth anything
-are: does this company actually buy the thing, who says so, and what happens when
+are: does this company buy the thing, who says so, and what happens when
 two sources disagree.
 
 So the design puts a hard, legally grounded gate at the front and confines the

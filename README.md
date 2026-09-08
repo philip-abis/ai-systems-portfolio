@@ -115,7 +115,7 @@ permanent regression test that runs at the start of every working session.
 confident figures and a complete policy summary, read off a page that did not
 exist. Nothing errored, because from the extractor's side nothing failed: it was
 handed text and produced the requested shape. Every schema here now carries a
-field asserting the page actually came back.
+field asserting the page came back.
 
 ---
 

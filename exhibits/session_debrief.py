@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Post-landing debrief — what must not be left behind when a session closes.
 
-Every check here exists because the thing it looks for has actually gone wrong.
+Every check here exists because the thing it looks for has gone wrong.
 None of them are hypothetical:
 
   MACHINERY UNCOMMITTED   Skills, scripts, config and hooks belong in git;

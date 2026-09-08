@@ -87,7 +87,7 @@ went.
 
 ## 5. Prove the page loaded before believing anything extracted from it.
 
-Every extraction schema carries a field asserting the page actually returned. The
+Every extraction schema carries a field asserting the page returned. The
 HTTP status is checked separately. Either one failing invalidates the whole
 extraction, not just the fields that look wrong.
 

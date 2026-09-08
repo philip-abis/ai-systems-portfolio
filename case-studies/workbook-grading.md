@@ -70,7 +70,7 @@ in a chapter nested three levels deep. It raised no error; it simply returned
 nothing, which is indistinguishable from having nothing to do. Fixed with a
 recursive glob, verified against both directory shapes at once.
 
-Two skills built to run in sequence were never actually wired together, so the
+Two skills built to run in sequence were never wired together, so the
 review package had to be requested by name every time. Nobody noticed until a
 chapter was closed and the quiz that was supposed to follow never arrived. The
 handoff is now automatic and announced rather than confirmed, because closing the
